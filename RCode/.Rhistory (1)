@@ -1,0 +1,512 @@
+table(oneal$allies)
+x.lo <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+dem.lo <- seq(-10, 10, length.out = 20
+x.lo <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+dem.lo <- seq(-10, 10, length.out = 20
+x.lo <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+dem.lo <- seq(-10, 10, length.out = 20)
+x.lo <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.lo <- x.hi <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 1
+x.lo
+X.hi
+x.hi
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 1
+sim1 <- coef(sim(m1, n = 10))
+pred.lo <- x.lo%*%t(sim1)
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 1
+sim1 <- coef(sim(m1, n = 10))
+pred.lo <- x.lo%*%t(sim1)
+dim(sim1)
+dim(x.lo)
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+7, # logdstab
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 1
+sim1 <- coef(sim(m1, n = 10))
+pred.lo <- x.lo%*%t(sim1)
+pred.lo
+plogis(x.lo%*%t(sim1))
+pred.lo <- plogis(x.lo%*%t(sim1))
+pred.hi <- plogis(x.hi%*%t(sim1))
+pred.dif <- pred.hi - pred.lo
+pred.dif
+q.dif <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+q.dif
+eplot(mm(dem.lo), mm(q.dif))
+library(compactr)
+library(compactr)
+eplot(mm(dem.lo), mm(q.dif),
+xlab = "Democracy",
+ylab = "Effect of Contiguity")
+lines(dem.lo, q.dif[2, ], lwd = 3)
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- cbind(x.lo, x.lo[2]*x.lo[3])
+x.hi <- cbind(x.hi, x.hi[2]*x.hi[3])
+sim3 <- coef(sim(m3, n = 10))
+pred.lo <- plogis(x.lo%*%t(sim3))
+pred.hi <- plogis(x.hi%*%t(sim3))
+pred.dif <- pred.hi - pred.lo
+q.dif <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+x.hi[2]
+x.hi[3]
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+7, # logdstab
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 1
+x.lo[2]
+x.lo
+x.lo <- cbind(x.lo, x.lo[, 2]*x.lo[, 3])
+x.hi <- cbind(x.hi, x.hi[, 2]*x.hi[, 3])
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+library(compactr)
+eplot(mm(dem.lo), mm(c(q.dif1, q.dif2)),
+xlab = "Democracy",
+ylab = "Effect of Contiguity")
+lines(dem.lo, q.dif1[2, ], lwd = 3)
+eplot(mm(dem.lo), mm(c(q.dif1, q.dif2)),
+xlab = "Democracy",
+ylab = "Effect of Contiguity")
+lines(dem.lo, q.dif2[2, ], lwd = 3)
+source('~/.active-rstudio-document')
+pred.dif
+pred.dif[1, ]
+pred.dif[1, ] - pred.dif[ncol(pred.dif), ]
+pred.dif[1, ] - pred.dif[nrow(pred.dif), ]
+q.sd <- quantile(pred.dif[nrow(pred.dif), ] - pred.dif[1, ], c(0.05, .5, 0.95))
+source('~/.active-rstudio-document')
+q.sd1
+q.sd2
+source('~/.active-rstudio-document')
+quantile(oneal$logdstab)
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+q.sd1; q.sd2
+rm(list = ls())
+setwd("~/Dropbox/Compress/OR Replication")
+library(foreign)
+library(arm)
+library(compactr)
+# Data available at
+#   http://pantheon.yale.edu/~brusset/io_dta.zip
+oneal <- read.dta("Data/or.dta")
+# compute lower and higher democracy score
+oneal$dem.lo <- apply(cbind(oneal$demauta, oneal$demautb), 1, min)
+oneal$dem.hi <- apply(cbind(oneal$demauta, oneal$demautb), 1, max)
+oneal$dep.lo <- apply(cbind(oneal$dependa, oneal$dependb), 1, min)
+oneal$dep.hi <- apply(cbind(oneal$dependa, oneal$dependb), 1, max)
+oneal$dyad.id <- paste(oneal$statea, oneal$stateb, sep = "/")
+oneal$contiguous <- -1*oneal$noncontg
+oneal$major.power <- -1*oneal$minrpwr
+oneal <- oneal[oneal$major.power == 1, ]
+m1 <- glm(dispute1 ~ dem.lo + logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m2 <- glm(dispute1 ~ dem.lo + contiguous + dem.lo*logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m3 <- glm(dispute1 ~ dem.lo*logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m4 <- glm(dispute1 ~ dem.lo*contiguous + dem.lo*logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m5 <- glm(dispute1 ~ dem.lo*contiguous*logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+BIC(m1, m2, m3, m4, m5)
+## pick up here by calculating the marginal effects
+## No Product Term
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+dem.lo, # dem.lo
+7, # logdstab
+#0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 8
+sim1 <- coef(sim(m1, n = 10))
+pred.lo <- plogis(x.lo%*%t(sim1))
+pred.hi <- plogis(x.hi%*%t(sim1))
+pred.dif <- pred.hi - pred.lo
+q.dif1 <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+q.sd1 <- quantile(pred.dif[nrow(pred.dif), ] - pred.dif[1, ], c(0.05, .5, 0.95))
+## Product Term
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- cbind(x.lo, x.lo[, 2]*x.lo[, 3])
+x.hi <- cbind(x.hi, x.hi[, 2]*x.hi[, 3])
+sim3 <- coef(sim(m3, n = 10))
+pred.lo <- plogis(x.lo%*%t(sim3))
+pred.hi <- plogis(x.hi%*%t(sim3))
+pred.dif <- pred.hi - pred.lo
+q.dif2 <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+q.sd2 <- quantile(pred.dif[nrow(pred.dif), ] - pred.dif[1, ], c(0.05, .5, 0.95))
+library(compactr)
+par(mfrow = c(1,2))
+eplot(mm(dem.lo), mm(c(q.dif1, q.dif2)),
+xlab = "Democracy",
+ylab = "Effect of Contiguity")
+lines(dem.lo, q.dif1[2, ], lwd = 3)
+eplot(mm(dem.lo), mm(c(q.dif1, q.dif2)),
+xlab = "Democracy",
+ylab = "Effect of Contiguity")
+lines(dem.lo, q.dif2[2, ], lwd = 3)
+q.sd1; q.sd2
+source('~/.active-rstudio-document')
+rm(list = ls())
+setwd("~/Dropbox/Compress/OR Replication")
+library(foreign)
+library(arm)
+library(compactr)
+# Data available at
+#   http://pantheon.yale.edu/~brusset/io_dta.zip
+oneal <- read.dta("Data/or.dta")
+# compute lower and higher democracy score
+oneal$dem.lo <- apply(cbind(oneal$demauta, oneal$demautb), 1, min)
+oneal$dem.hi <- apply(cbind(oneal$demauta, oneal$demautb), 1, max)
+oneal$dep.lo <- apply(cbind(oneal$dependa, oneal$dependb), 1, min)
+oneal$dep.hi <- apply(cbind(oneal$dependa, oneal$dependb), 1, max)
+oneal$dyad.id <- paste(oneal$statea, oneal$stateb, sep = "/")
+oneal$contiguous <- -1*oneal$noncontg
+oneal$major.power <- -1*oneal$minrpwr
+oneal <- oneal[oneal$major.power == 1, ]
+m1 <- glm(dispute1 ~ dem.lo + contiguous + logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m2 <- glm(dispute1 ~ dem.lo + contiguous + dem.lo*logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m3 <- glm(dispute1 ~ dem.lo*contiguous + logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m4 <- glm(dispute1 ~ dem.lo*contiguous + dem.lo*logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m5 <- glm(dispute1 ~ dem.lo*contiguous*logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+BIC(m1, m2, m3, m4, m5)
+## pick up here by calculating the marginal effects
+## No Product Term
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+dem.lo, # dem.lo
+0, # contiguous
+7, # logdstab
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 1
+sim1 <- coef(sim(m1, n = 10))
+pred.lo <- plogis(x.lo%*%t(sim1))
+pred.hi <- plogis(x.hi%*%t(sim1))
+pred.dif <- pred.hi - pred.lo
+q.dif1 <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+q.sd1 <- quantile(pred.dif[nrow(pred.dif), ] - pred.dif[1, ], c(0.05, .5, 0.95))
+## Product Term
+dem.lo <- seq(-10, 10, length.out = 5)
+x.lo <- cbind(x.lo, x.lo[, 2]*x.lo[, 3])
+x.hi <- cbind(x.hi, x.hi[, 2]*x.hi[, 3])
+sim3 <- coef(sim(m3, n = 10))
+pred.lo <- plogis(x.lo%*%t(sim3))
+pred.hi <- plogis(x.hi%*%t(sim3))
+pred.dif <- pred.hi - pred.lo
+q.dif2 <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+q.sd2 <- quantile(pred.dif[nrow(pred.dif), ] - pred.dif[1, ], c(0.05, .5, 0.95))
+library(compactr)
+par(mfrow = c(1,2))
+eplot(mm(dem.lo), mm(c(q.dif1, q.dif2)),
+xlab = "Democracy",
+ylab = "Effect of Contiguity")
+lines(dem.lo, q.dif1[2, ], lwd = 3)
+eplot(mm(dem.lo), mm(c(q.dif1, q.dif2)),
+xlab = "Democracy",
+ylab = "Effect of Contiguity")
+lines(dem.lo, q.dif2[2, ], lwd = 3)
+q.sd1; q.sd2
+display(m1)
+display(m3)
+m1 <- glm(dispute1 ~ dem.lo + dep.lo + contiguous + logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m3 <- glm(dispute1 ~ dem.lo*dep.lo + contiguous + logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+display(m1)
+display(m3)
+m1 <- glm(dispute1 ~ dem.lo + contiguous + logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+m3 <- glm(dispute1 ~ dem.lo*allies + contiguous + logdstab + allies + lcaprat2,
+family = "binomial", data = oneal)
+display(m1); display(m3)
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+oneal$joint.dem <- 1*(oneal.lo >= 7)
+oneal$joint.dem <- 1*(oneal$dem.lo >= 7)
+source('~/.active-rstudio-document')
+q.sd1; q.sd2
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+display(m1)
+display(m3)
+q.sd1
+q.sd2
+## No Product Term
+joint.dem <- seq(0, 1, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+joint.dem, # dem.lo
+7, # logdstab
+0, # allies
+0, # contiguous
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 8
+sim1 <- coef(sim(m1, n = 1000))
+pred.lo <- plogis(x.lo%*%t(sim1))
+pred.hi <- plogis(x.hi%*%t(sim1))
+pred.dif <- pred.hi - pred.lo
+q.dif1 <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+q.sd1 <- quantile(pred.dif[nrow(pred.dif), ] - pred.dif[1, ], c(0.05, .5, 0.95))
+## Product Term
+x.lo <- cbind(x.lo, x.lo[, 2]*x.lo[, 3])
+x.hi <- cbind(x.hi, x.hi[, 2]*x.hi[, 3])
+x.hit
+x.hi
+source('~/.active-rstudio-document')
+q.sd1
+q.sd2
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+m3 <- glm(dispute1 ~ joint.dem*logdstab + joint.dem*contiguous + lcaprat2,
+family = "binomial", data = oneal)
+display(m3)
+dim(x.hi)
+dim(sim3)
+x.lo[, 2]*x.lo[, 4]
+x.lo[, 2]*x.lo[, 3]
+source('~/.active-rstudio-document')
+x.lo
+coef(m3)
+source('~/.active-rstudio-document')
+q.sd
+q.sd1
+q.sd2
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+q.sd1
+q.sd2
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+q.sd2
+q.sd1
+## No Product Term
+joint.dem <- seq(0, 1, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+joint.dem, # dem.lo
+3, # logdstab
+0, # contiguous
+0, # allies
+median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 9
+sim1 <- coef(sim(m1, n = 1000))
+pred.lo <- plogis(x.lo%*%t(sim1))
+pred.hi <- plogis(x.hi%*%t(sim1))
+pred.dif <- pred.hi - pred.lo
+q.dif1 <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+q.sd1 <- quantile(pred.dif[nrow(pred.dif), ] - pred.dif[1, ], c(0.05, .5, 0.95))
+q.sd1
+q.sd2
+## Product Term
+x.lo <- cbind(x.lo, x.lo[, 2]*x.lo[, 3], x.lo[, 2]*x.lo[, 4])
+x.hi <- cbind(x.hi, x.hi[, 2]*x.hi[, 3], x.hi[, 2]*x.hi[, 4])
+sim3 <- coef(sim(m3, n = 10))
+pred.lo <- plogis(x.lo%*%t(sim3))
+pred.hi <- plogis(x.hi%*%t(sim3))
+pred.dif <- pred.hi - pred.lo
+q.dif2 <- apply(pred.dif, 1, quantile, c(0.05, 0.5, 0.95))
+q.sd2 <- quantile(pred.dif[nrow(pred.dif), ] - pred.dif[1, ], c(0.05, .5, 0.95))
+q.sd2
+source('~/.active-rstudio-document')
+coef(m1)
+x.lo
+## No Product Term
+joint.dem <- seq(0, 1, length.out = 5)
+x.lo <- x.hi <- cbind(1,
+joint.dem, # dem.lo
+3, # logdstab
+0)#, # contiguous
+#0, # allies
+#median(oneal$lcaprat2, na.rm = TRUE))
+x.hi[, 3] <- 9
+x.lo
+source('~/.active-rstudio-document')
+coef(m3)
+x.lo
+dim(sim1)
+source('~/.active-rstudio-document')
+q.sd1
+q.sd2
+# set the working directory
+setwd("~/Dropbox/Classes/531 Projects/Hasbrouck and McCaskey/")
+# set the working directory
+setwd("~/Dropbox/Classes/531 Projects/Hasbrouck and McCaskey/")
+read.dta("Data/Leblang_Replication.dta")
+# set the working directory
+setwd("~/Dropbox/Classes/531 Projects/Hasbrouck and McCaskey/")
+d1 <- read.dta("Data/Unmerged Data/Leblang_Replication_Original.dta")
+summary(d1)
+d2 <- read.dta("Data/Unmerged Data/Genetic Distance.dta")
+d2 <- read.dta("Data/Unmerged Data/Genetic_Distance.dta")
+summaryd2()
+summary(d2)
+head(d1)
+head(d2)
+# set the working directory
+setwd("~/Dropbox/Classes/531 Projects/Hasbrouck and McCaskey/")
+d1 <- read.dta("Data/Unmerged Data/Leblang_Replication_Original.dta")
+d2 <- read.dta("Data/Unmerged Data/Genetic_Distance.dta")
+d3 <- read.dta("Data/Unmerged Data/IFS_Country_Codes_Full.dta.dta")
+d3 <- read.dta("Data/Unmerged Data/IFS_Country_Codes_Full.dta")
+?read.dta
+d3 <- read.csv("Data/Unmerged Data/IFS_Country_Codes_Full.csv")
+head(d3)
+d3$country.name.caps <- toupper(d3$name)
+head(d3$country.name.caps)
+head(d1)
+head(d2)
+d2$country1.name.caps <- toupper(d2$country_1)
+d2$country1.name.caps
+d2 <- read.dta("Data/Unmerged Data/Genetic_Distance.dta")
+head(d2)
+d2$country1.name.caps <- toupper(d2$country_1)
+d2$country2.name.caps <- toupper(d2$country_2)
+# Now loop over the
+names(d2)
+head(d2)
+unique(d3$country.name.caps) %in% unique(d2$country1.name.caps)
+unique(d2$country1.name.caps)
+unique(d3$country.name.caps)
+sort(unique(d3$country.name.caps))
+unique(d2$country1.name.caps) %*% unique(d3$country.name.caps)
+unique(d2$country1.name.caps) %in% unique(d3$country.name.caps)
+unique(d2$country1.name.caps)
+# Now check for stragglers
+unique(d2$country1.name.caps)[unique(d2$country1.name.caps) %in% unique(d3$country.name.caps)]
+source('~/.active-rstudio-document')
+source('~/.active-rstudio-document')
+unique(d2$country1.name.caps)[!(unique(d2$country1.name.caps) %in% unique(d3$country.name.caps))]
+d2 <- read.dta("Data/Unmerged Data/Genetic_Distance.dta")
+head(d2)
+unique(d2$country1.name.caps)[!(unique(d2$country1.name.caps) %in% unique(d3$country.name.caps))]
+unique(d2$country1.name.caps)[!(unique(d2$country1.name.caps) %in% unique(d3$country.name.caps))]
+# set the working directory
+setwd("~/Dropbox/Classes/531 Projects/Hasbrouck and McCaskey/")
+d1 <- read.dta("Data/Unmerged Data/Leblang_Replication_Original.dta")
+d2 <- read.dta("Data/Unmerged Data/Genetic_Distance.dta")
+d3 <- read.csv("Data/Unmerged Data/IFS_Country_Codes_Full.csv")
+## The case of the country names in the IFS Codes and the country names in the
+## Leblang data do not match. One has leading caps and the other is all caps I'm
+## going to make both all caps.
+d3$country.name.caps <- toupper(d3$name)
+d2$country1.name.caps <- toupper(d2$country_1)
+d2$country2.name.caps <- toupper(d2$country_2)
+# Now check for stragglers
+unique(d2$country1.name.caps)[!(unique(d2$country1.name.caps) %in% unique(d3$country.name.caps))]
+unique(d2$country1.name.caps)[!(unique(d2$country1.name.caps) %in% unique(d3$country.name.caps))]
+unique(d3$country.name.caps)[!(unique(d3$country.name.caps)) %in% unique(d2$country1.name.caps))]
+unique(d3$country.name.caps)[!(unique(d3$country.name.caps)) %in% unique(d2$country1.name.caps)))]
+unique(d3$country.name.caps)[!(unique(d3$country.name.caps) %in% unique(d2$country1.name.caps))]
+lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig  + Lcomlang_off + Lgrowcorr + Lcommoncur + Ldtt + Lpta2)
+lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig  + Lcomlang_off + Lgrowcorr + Lcommoncur + Ldtt + Lpta2, data = d1)
+names(d1)
+lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig  + Lcomlang_off + Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2, data = d1)
+display(m)
+library(arm)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig  + Lcomlang_off + Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2, data = d1)
+display(m)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig  + Lcomlang_off + Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 +
+as.factor(ifs_o) + as.factor(ifs_d),
+data = d1)
+coef(m)[1:10]
+display(m)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncur + Ldtt + Lpta2 + LI + commonleg +
+commonrel + ltrade + LB, data = d1)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI + commonleg +
+commonrel + ltrade + LB, data = d1)
+names(d1)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI + commonlegal +
+commonrel + ltrade + LB, data = d1)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI + commonlegal +
+commonreligion + ltrade + LB, data = d1)
+display(m)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI + commonlegal +
+commonreligion + ltrade + LB as.factor(ifs_o) + as.factor(ifs_d), data = d1)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI + commonlegal +
+commonreligion + ltrade + LB as.factor(ifs_o) + as.factor(ifs_d),
+data = d1)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI + commonlegal +
+commonreligion + ltrade + LB + as.factor(ifs_o) + as.factor(ifs_d),
+data = d1)
+display(m)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI +
+commonlegal + commonreligion + ltrade + LB +
+as.factor(ifs_o) + as.factor(ifs_d),
+data = d1)
+display(m)
+source('~/.active-rstudio-document')
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI +
+commonlegal + commonreligion + ltrade + LB +
+as.factor(ifs_o) + as.factor(ifs_d),
+data = d1)
+display(m)
+?plm
+m2 <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lcomlang_off +
+Lgrowcorr + Lcommoncurrency + Ldtt + Lpta2 + LI +
+commonlegal + commonreligion + ltrade + LB +
+as.factor(ifs_o) + as.factor(ifs_d),
+data = d1)
