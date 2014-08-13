@@ -43,7 +43,7 @@ beta.rlm <- coef(m.m)[k]
 summ <- summary(m.m)
 Sigma.lm <- vcov(m)[k, k]
 
-par(mfrow = c(1, 1), family = "serif")
+par(mfrow = c(1,1))
 eplot(xlim = c(-1.5, 1.5), ylim = c(.5, length(beta.lm) + 2),
       xlab = "Coefficient Estimate",
       main = "IPF Robust Coefficient Estimate Comparison")
@@ -51,9 +51,9 @@ abline(v = 0, lty = "dotted")
 
 Sigma.rlm <- (summ$cov.unscaled*summ$sigma^2)[k, k]
 for (i in 1:length(beta.lm)) {
-  text(beta.lm[i], i + .001, labels = names(beta.lm[i]), pos = 3)
+  text(beta.lm[i], i, labels = names(beta.lm[i]), pos = 3)
   points(beta.lm[i], i, pch = 19)
-  points(beta.rlm[i], i - .1, pch = 19, col = "red")
+  points(beta.rlm[i], i - .2, pch = 19, col = "red")
   lines(c(beta.lm[i] - 1.64*sqrt(Sigma.lm[i, i]), beta.lm[i] 
           + 1.64*sqrt(Sigma.lm[i, i])),
         c(i, i))
