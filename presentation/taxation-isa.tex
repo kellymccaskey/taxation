@@ -1,0 +1,217 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Overcoming Structural Barriers}
+\subtitle{The Effect of Migrant Networks and Coordinated Financial Policies on International Investment}
+\author{Kelly McCaskey} 
+\institute{University at Buffalo, SUNY}
+\date{February 19th, 2015} 
+
+\frame{\titlepage} 
+
+\frame{\frametitle{Two things}
+\begin{itemize}
+\item Financial policy coordination increases the strength of migrant networks \pause 
+\item The level of strength is different for different types of investment  
+\end{itemize} 
+}
+
+\frame{\frametitle{Migrant networks \& international investment}
+\begin{itemize}
+\item Consequences of migration \pause 
+\item Networks as information channels \pause
+\item Migrant networks increase international investment \pause
+\begin{itemize}
+\item Portfolio investment \pause
+\item Foreign direct investment 
+\end{itemize}
+\end{itemize} 
+}
+
+\frame{\frametitle{Why?}
+\begin{itemize}
+\item An increase in familiarity \pause 
+\item A decrease in information asymmetries and transaction costs. 
+\end{itemize} 
+}
+
+\frame{\frametitle{Structural barriers}
+\begin{itemize}
+\item Coordinated financial policies 
+\begin{itemize}
+\item Dual taxation treaties
+\end{itemize}
+\end{itemize} 
+}
+
+\frame{\frametitle{Hypotheses}
+\begin{itemize}
+\item Migrant networks have a larger effect on portfolio investment in combination with a dual taxation treaty than without\pause 
+\item The combination of a dual taxation treaty and a migrant network has a negligible effect on FDI
+\end{itemize} 
+}
+
+\frame{\frametitle{Data + model}
+\begin{itemize}
+\item DV:
+\begin{itemize}
+\item International portfolio investment
+\begin{itemize}
+\item International Monetary Fund
+\item 56 source, 154 destination countries
+\item 2002\pause 
+\end{itemize}
+\item Foreign direct investment
+\begin{itemize}
+\item OECD
+\item 28 source, 158 destination countries
+\item 2002\pause
+\end{itemize}
+\end{itemize}
+\item IV:
+\begin{itemize}
+\item Migrant networks
+\begin{itemize}
+\item Migrant stock in destination country from source
+\item World Bank
+\item 2002\pause
+\end{itemize}
+\item Dual taxation treaty
+\begin{itemize}
+\item United Nations Conference on Trade and Development\pause
+\end{itemize}
+\end{itemize} 
+\item Model: OLS
+\end{itemize}
+}
+
+\frame{\frametitle{Marginal effect}
+  \begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{me-plot.png}
+    %\caption{Awesome figure}
+  \end{figure}
+}
+
+\frame{\frametitle{US-Philippines 2002}
+\begin{itemize}
+\item Approximately 2 million Filipino migrants \pause
+\item Portfolio investment increase by approximately \$10 million \pause
+\item Negligible change in FDI
+\end{itemize}
+}
+
+\frame{\frametitle{Control variables}
+\begin{itemize}
+\item Market size
+\item Distance
+\item Contiguous border
+\item Common language
+\item Growth correlation
+\item Common currency
+\item Preferential trade agreement
+\item Bilateral phone volume
+\item Common legal heritage
+\item Common religion
+\end{itemize}
+}
+
+\frame{\frametitle{Migrant stock and portfolio investment}
+\begin{tabular}{l c c }	
+Variable    & Coef. & 90\% C.I.  \\
+\hline
+Constant      &-129.15	&[-214.92, -43.38] \\
+Migrant Stock	&0.18	&[0.08, 0.29] \\
+Market Size     	&0.17	&[0.07, 0.27] \\
+Distance     	&-1.16	&[-1.55, -0.77]  \\
+Contiguous Border 	&-0.86	&[-1.59, -0.11]	\\
+Common Language 	&-0.11	&[-0.58, 0.36] \\
+Growth Correlation 	&0.03	&[-0.26, 0.32] \\
+Common Currency	&1.15	&[0.58, 1.72] 	\\
+Dual Taxation Treaty	&1.30	&[0.73, 1.87]  \\
+PTA	 	&0.79	&[0.05, 1.53]	\\ 
+Bilateral Telephone Volume	&0.10	&[0.00, 0.20] \\
+Common Legal Heritage 	 &0.19	&[-0.16, 0.54] \\
+Common Religion	&0.55	&[0.08, 1.02] \\
+
+\\N &5134 \\
+\hline
+\end{tabular}
+}
+
+
+\frame{\frametitle{Migrant stock and portfolio investment + interaction}
+ \begin{tabular}{l c c}	
+Variable    & Coef. & 90\% C.I.  \\
+\hline
+Constant       & -116.81 &[-186.3 , -47.3]\\
+Migrant Stock &0.12	&[0.04, 0.20]\\
+Migrant Stock $\times$ Dual Taxation &0.26	&[0.15, 0.37]\\
+Market Size     	&0.16   	&[0.09, 0.22]\\
+Distance     	  &-1.18  	&[-1.50, -0.85]\\
+Contiguous Border 		&-1.05  	 &[-1.64, -0.46]\\
+Common Language 	 &-0.11 	&[-0.49, 0.28]  \\
+Growth Correlation 	&0.02	&[-0.22, 0.27]\\
+Common Currency		&0.99	&[0.55,  1.43]\\
+Dual Taxation Treaty	 &-0.31	&[-1.13, 0.51] \\
+PTA	 	 &0.72	&[0.13, 1.31]	\\ 
+Bilateral Telephone Volume	&0.09	&[0.01, 0.17]\\
+Common Legal Heritage 	 &0.21	&[-0.09, 0.51]\\
+Common Religion	 &0.50	&[0.12, 0.88]\\
+
+\\N	&5134	&\\
+\hline
+\end{tabular}
+}
+
+
+\frame{\frametitle{Migrant stock and FDI}
+\begin{tabular}{lcc}
+Variable    & Coef. & 90\% C.I. \\
+\hline
+Constant      &-121.40	&[-206.91, -35.89]	\\
+Migrant Stock	&0.16	&[0.06. 0.29]	\\
+Market Size      &0.15   	&[0.05, 0.25]     \\
+Distance      &-1.18  	&[-1.62, -0.74]      \\
+Contiguous Border &0.61  	 &[-0.37, 1.59] 	\\
+Common Language &1.70 	&[0.72, 2.68]  	\\
+Growth Correlation &0.18	&[-0.09, 0.45] 	\\
+Common Currency	&0.72	&[-0.26,  1.70]	\\
+Dual Taxation Treaty	&0.60	&[0.09, 0.11] 	\\
+PTA	&0.07	&[-0.68, 0.81] 	\\
+Bilateral Telephone Volume	&-0.06	&[-0.20, 0.08] 	\\
+Common Legal Heritage 	&0.21	&[-0.16, 0.58] 	\\
+Common Religion	&0.23	&[-0.20, 0.66] 	\\
+
+\\N &3658 \\
+\hline
+\end{tabular}
+}
+
+\frame{\frametitle{Migrant stock and FDI + interaction} 
+\begin{tabular}{lcc}	
+Variable   & Coef. & 90\% C.I \\
+\hline
+Constant     	&-121.90	&[-193.6, -50.2]\\
+Migrant Stock		&0.17	&[0.08, 0.25]\\
+Migrant Stock $\times$ Dual Taxation	&-0.006	&[-0.07, 0.05]\\
+Market Size         &0.15	&[0.07, 0.23] \\
+Distance        &-1.19	&[-1.55, -0.83]\\
+Contiguous Border 	&0.62	&[-0.21, 1.45]      \\
+Common Language 	&1.70	&[[1.45, 1.94]\\
+Growth Correlation	&0.17	&[-0.63, 0.97]\\
+Common Currency	&0.72	&[-0.09, 1.53]\\
+Dual Taxation Treaty	&0.63	&[-0.03, 1.29]\\
+PTA	 	&0.07	&[-0.55, 0.69]\\ 
+Bilateral Telephone Volume	&-0.06	&[-0.18, 0.06]\\
+Common Legal Heritage 	&0.21	&[-0.11, 0.54]\\
+Common Religion	 	&0.23	&[-0.13, 0.59]\\
+
+\\N &3658	\\
+\hline
+\end{tabular}
+}
+\end{document}
+
