@@ -1,29 +1,26 @@
 ## Migration x Taxation on FDI
 
 # Set the working directory
-# setwd("/Users/kellymccaskey/Dropbox/Projects/Taxation/")
+setwd("~/Dropbox/projects/taxation/")
 
 # Load packages
-library(foreign)
 library(arm)
 library(compactr)
 library(sandwich)
 library(lmtest)
 
 # Load data
-# d <- read.dta("Data/apsr_replication.dta")
-ld <- na.omit(d[, c("loutflowsa", "Llgdpproduct2", "Lldist", "Lcontig", 
-                    "Lcomlang_off", "Lgrowcorr", "Lcommoncurrency", 
-                    "Ldtt", "Lpta2", "commonlegal", "commonreligion", 
-                    "LI", "LB", "ifs_o", "ifs_d")])
+d <- read.csv("data/taxation-composite.csv")
+ld <- na.omit(d[, c("loutflowsa", "Llgdpproduct2", "Lldist", "Lcontig", "Lcomlang_off", "Lgrowcorr", "Lcommoncurrency", "Ldtt", "Lpta2", "commonlegal", "commonreligion", "LI", "LB", "ifs_o", "ifs_d", "culture_composite")])
 
 vi <- c(1:13)
-# model estimation with product term
-m <- lm(loutflowsa ~ Llgdpproduct2 + Lldist + Lcontig 
-        + Lcomlang_off + Lgrowcorr + Lcommoncurrency 
-        + Ldtt + Lpta2 + LI + LB + commonlegal + commonreligion 
-        + Ldtt*LI + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
-# display(m, detail = TRUE)
+
+# model estimation
+m <- lm(loutflowsa ~ Llgdpproduct2 + Lldist + Lcontig + as.numeric(culture_composite) + Lgrowcorr + Ldtt + Lpta2 + LI + LB + Ldtt*LI + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
+m2 <- lm(loutflowsa ~ Llgdpproduct2 + Lldist + Lcontig + as.numeric(culture_composite) + Lgrowcorr + Ldtt + Lpta2 + LI + LB + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
+
+m3 <- lm(loutflowsa ~ Llgdpproduct2 + Lldist + Lcontig + Lgrowcorr + Ldtt + Lpta2 + LI + LB + Ldtt*LI + Lcommoncurrency + Lcomlang_off + commonlegal + commonreligion + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
+m4 <- lm(loutflowsa ~ Llgdpproduct2 + Lldist + Lcontig + Lgrowcorr + Ldtt + Lpta2 + LI + LB + Lcommoncurrency + Lcomlang_off + commonlegal + commonreligion + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
 
 mclx <- 
   function(fm, dfcw, cluster1, cluster2){
@@ -62,10 +59,12 @@ mclx <-
   }
 
 rob.est <- mclx(m, 1, ld$ifs_o, ld$ifs_d) #[vi, vi]
+rob.est2 <- mclx(m2, 1, ld$ifs_o, ld$ifs_d)
 
 # to get the coefficients and standard errors of Model 2 
-# (the right side of Table 2)
-rob.est$tests
+# (Table 2)
+rob.est2$test # no interaction
+rob.est$tests # interaction
 
 # pull coefficients
 b.hat <- coef(m)

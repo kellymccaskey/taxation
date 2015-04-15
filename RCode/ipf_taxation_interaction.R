@@ -1,32 +1,26 @@
 ## Migration x Taxation on IPF
 
 # Set the working directory
-# setwd("/Users/kellymccaskey/Dropbox/Projects/Taxation/")
+# setwd("~/Dropbox/projects/taxation/")
 
 # Load packages
-library(foreign)
 library(arm)
 library(compactr)
 library(sandwich)
 library(lmtest)
 
 # Load data
-# d <- read.dta("Data/apsr_replication.dta")
-ld <- na.omit(d[, c("lstocka", "Llgdpproduct2", "Lldist", "Lcontig", 
-                    "Lcomlang_off", "Lgrowcorr", "Lcommoncurrency", 
-                    "Ldtt", "Lpta2", "commonlegal", "commonreligion", 
-                    "LI", "LB",  "ifs_o", "ifs_d")])
+# d <- read.csv("data/taxation-composite.csv")
+ld <- na.omit(d[, c("lstocka", "Llgdpproduct2", "Lldist", "Lcontig", "Lcomlang_off", "Lgrowcorr", "Lcommoncurrency", "Ldtt", "Lpta2", "commonlegal", "commonreligion", "LI", "LB",  "ifs_o", "ifs_d", "culture_composite")])
+vi <- c(1:14)
 
-vi <- c(1:13)
+m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + as.numeric(culture_composite) + Lgrowcorr + Ldtt + Lpta2 + LI + LB + Ldtt*LI + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
+m2 <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + as.numeric(culture_composite) + Lgrowcorr + Ldtt + Lpta2 + LI + LB + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
 
-# PI model estimation with product term
-m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig 
-        + Lcomlang_off + Lgrowcorr + Lcommoncurrency 
-        + Ldtt + Lpta2 + LI + LB + commonlegal 
-        + commonreligion + Ldtt*LI + as.factor(ifs_o) 
-        + as.factor(ifs_d), data = ld) 
-# display(m, detail = TRUE)
+m3 <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lgrowcorr + Ldtt + Lpta2 + LI + LB + Ldtt*LI + Lcomlang_off + Lcommoncurrency + commonlegal + commonreligion + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
+m4 <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + Lgrowcorr + Ldtt + Lpta2 + LI + LB + Lcomlang_off + Lcommoncurrency + commonlegal + commonreligion + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 
 
+# for two-way clustering of standard errors, clustered on investment source and destination country
 mclx <- 
   function(fm, dfcw, cluster1, cluster2){
     # available from: http://people.su.se/~ma/clustering.pdf
@@ -63,12 +57,15 @@ mclx <-
     return(V)
   }
 
-rob.est <- mclx(m, 1, ld$ifs_o, ld$ifs_d) #[vi, vi]
+rob.est <- mclx(m, 1, ld$ifs_o, ld$ifs_d)
+rob.est.2 <- mclx(m2, 1, ld$ifs_o, ld$ifs_d) #[vi, vi]
 
 # to get the coefficients and the standard errors for model 1
-# (the left side of table 2)
-rob.est$tests
+# (table 1)
+rob.est.2$tests # no interaction
+rob.est$tests # interaction
 
+# prep work for marginal effects plot
 # PI - pull coefficients
 b.hat <- coef(m)
 

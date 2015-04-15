@@ -1,6 +1,6 @@
 ## IPF - FDI Migration x Taxation Interaction Marginal Effects Plot
 
-# setwd("/Users/kellymccaskey/Dropbox/Projects/Taxation/")
+# setwd("~/Dropbox/projects/taxation/")
 
 # make sure you still have your objects from running ipf_taxation_interaction.R
 # and fdi_taxation_interaction.R in your environment before running this script
