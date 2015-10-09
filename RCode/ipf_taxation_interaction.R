@@ -11,7 +11,7 @@ library(lmtest)
 
 # Load data
 # d <- read.csv("data/taxation-composite.csv")
-ld <- na.omit(d[, c("lstocka", "Llgdpproduct2", "Lldist", "Lcontig", "Lcomlang_off", "Lgrowcorr", "Lcommoncurrency", "Ldtt", "Lpta2", "commonlegal", "commonreligion", "LI", "LB",  "ifs_o", "ifs_d", "culture_composite")])
+ld <- na.omit(d[, c("lstocka", "Llgdpproduct2", "Lldist", "Lcontig", "Lcomlang_off", "Lgrowcorr", "Lcommoncurrency", "Ldtt", "Lpta2", "commonlegal", "commonreligion", "LI", "LB", "loutflowsa", "ifs_o", "ifs_d", "culture_composite")])
 vi <- c(1:14)
 
 m <- lm(lstocka ~ Llgdpproduct2 + Lldist + Lcontig + as.numeric(culture_composite) + Lgrowcorr + Ldtt + Lpta2 + LI + LB + Ldtt*LI + as.factor(ifs_o) + as.factor(ifs_d), data = ld) 

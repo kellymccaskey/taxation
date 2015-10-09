@@ -13,6 +13,7 @@ library(compactr)
 library(sandwich)
 library(lmtest)
 library(robust)
+library(ggplot2)
 
 # load data
 # d <- read.csv("data/taxation.csv")
