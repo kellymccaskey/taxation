@@ -12,9 +12,9 @@ log(1041)
 
 exp(6.947937*0.18) # pi increase w/o DTT
 
+# increase 0.27 from 0.18 -- 0.09 percentage points
+exp(6.947937*0.39) # pi increase w/ DTT
+
 1.4072*0.0010 # negligible increase in FDI
 
 exp(6.947937*0.19) # fdi increase w/o DTT
-
-(exp((6.947937*0.12)+0.39))-(exp(6.947937*0.12)) # pi increase w/ DTT
-
